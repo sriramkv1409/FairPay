@@ -6,7 +6,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "groups")
+@Table(name = "expense_groups")
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
 @Builder
@@ -27,5 +27,11 @@ public class Group {
 
     private double totalAmount;
 
-    private LocalDateTime createdAt = LocalDateTime.now();
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    @PrePersist
+    public void onCreate() {
+        this.createdAt = LocalDateTime.now();
+    }
 }

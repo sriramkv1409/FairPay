@@ -31,6 +31,5 @@ public class AuthController {
 
         userService.login(request);
         return ResponseEntity.ok(new AuthResponse("Login Success"));
-
     }
 }

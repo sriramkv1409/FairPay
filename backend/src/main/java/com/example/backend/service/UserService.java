@@ -28,7 +28,6 @@ public class UserService {
         userRepository.save(user);
 
     }
-
     public void login(LoginRequest request) {
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new RuntimeException("Invalid email or password"));
