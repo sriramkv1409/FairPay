@@ -38,6 +38,7 @@ public class GroupController {
         return ResponseEntity.ok("Joined group successfully");
     }
 
+
     @GetMapping("/{groupId}/members")
     public ResponseEntity<List<GroupMember>> getMembers(
             @PathVariable Long groupId) {
